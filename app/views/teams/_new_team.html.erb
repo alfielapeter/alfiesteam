@@ -1,0 +1,38 @@
+<% if user_signed_in? %>
+<h2>Create a team...</h2>
+	<%= form_for(@team) do |f| %>
+	  <div class="field left">
+	    <%= f.label :name %><br />
+	    <%= f.text_field :name %>
+	  </div>
+	  <div class="field left">
+	    <%= f.label :location %><br />
+	    <%= f.text_field :location %>
+	  </div>
+	  <div class="field left">
+	    <%= f.label :league %><br />
+	    <%= f.text_field :league %>
+	  </div>
+	  <div class="actions right">
+	    <%= f.submit "Create Team", :class => "button" %>
+	  </div>
+	  <div id="cl"></div>
+	<% end %>
+<% else %>
+	<div id="intro">
+		Are you the captain of an adult or intramural sports team? Tired of teammates "forgetting" about the game and not showing up?
+		We can fix that in three easy steps:
+		<ol>
+			<li>Create a team...</li>
+			We just need your team name, site location and league name.
+			<li>Invite Players...</li>
+			We'll email them to ask for their phone number for text reminders.
+			<li>Add Games...</li>
+			All we need is the start time and date.
+		</ol>
+		We'll take care of the rest - free! Once a player has accepted your invitation, they'll receive a text message reminding them of 
+		the game a few hours before game time. They can respond with "attending" or "not attending" and you'll know who will make 
+		it and who won't. 
+		<center><h2><%= link_to "Sign up to add your team.", new_user_registration_path %></h2></center>
+	</div>
+<% end %>

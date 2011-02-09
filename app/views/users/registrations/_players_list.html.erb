@@ -1,0 +1,1 @@
+<% if current_team.users.length > 1 %><hr /><h3>Invited players:</h3><table><thead><tr><th>Name</th><th>Phone</th><th>Email</th></tr></thead><% for player in current_team.users %><% unless player == current_user %><tbody><tr><td><%= player.name %></td><td><%= player.phone %></td><td><%= player.email %></td></tr></tbody><% end %><% end %></table><% end -%>

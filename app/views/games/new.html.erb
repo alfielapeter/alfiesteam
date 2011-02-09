@@ -1,0 +1,47 @@
+<div id="players_box" class="box">
+	<div id="players">
+		<h2>Add Players...</h2>
+		<% if current_team %>
+			<div id="player_form">
+		<% else %>
+			<div id="player_form" style="display:none;">
+		<% end %>
+			<%= form_for(@player, :as => :user, :url => '/invite_player', :html => {:id => "new_player"}) do |f| %>
+				<div class="field left"><%= f.label :name %><br />
+				<%= f.text_field :name %></div>
+				<div class="field left"><%= f.label :email %><br />
+				<%= f.text_field :email %></div>
+				<div class="actions right">
+				<%= f.submit "Add Player", :class => "button" %>
+				</div>
+				<div id="cl"></div>
+			<% end %>
+			<div id="current_players">
+				<% unless current_team.blank? %>
+					<%= render :partial => "users/registrations/players_list" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="games_box" class="box">
+<h2>Add Games...</h2>
+	<% if current_team %>
+		<div id="game_form">
+	<% else %>
+		<div id="game_form" style="display:none;">
+	<% end %>	
+			<%= form_for(@game) do |f| %>
+				<div class="field left"><%= f.label :start_at, "Start Date and Time" %><br />
+					<%= f.datetime_select :start_at, :minute_step => 5, :order => [:month, :day, :year, :hour, :minute] -%></div>
+				<div class="actions right">
+					<%= f.submit "Schedule Game", :class => "button" %></div>
+				<div id="cl"></div>
+			<% end %>
+			<div id="current_games">
+				<% unless current_team.blank? || current_team.games.blank? %>
+					<%= render :partial => "pages/game_list" %>
+				<% end -%>
+			</div>
+	</div>
+</div>

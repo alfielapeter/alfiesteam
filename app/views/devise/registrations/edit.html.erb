@@ -1,0 +1,62 @@
+<div class="left_box box">
+	<h2>Edit Your Profile</h2>
+
+	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+	  <%= devise_error_messages! %>
+
+	  <p><%= f.label :name %><br />
+	  <%= f.text_field :name %></p>
+
+	  <p><%= f.label :phone %><br />
+	  <%= f.text_field :phone %></p>
+
+	  <p><%= f.label :email %><br />
+	  <%= f.email_field :email %></p>
+
+	  <p><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+	  <%= f.password_field :password %></p>
+
+	  <p><%= f.label :password_confirmation %><br />
+	  <%= f.password_field :password_confirmation %></p>
+	
+	  <p><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+	  <%= f.password_field :current_password %></p>
+	
+	  <p>Are you the team captain?<br />
+	  Yes&nbsp;<%= f.radio_button :captain, true %><br />
+	  No&nbsp;&nbsp;<%= f.radio_button :captain, false %></p>
+
+	  <p><%= f.submit "Update", :class => "button" %></p>
+	<% end %>
+	<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+</div>
+<div class="right_box box">
+	<h2>My Teams</h2>
+	<% unless resource.teams.blank? %>
+	<table>
+		<% for team in resource.teams %>
+			<tr>
+				<td><h3><%= link_to team.name, team_path(team) %></h3></td>
+			</tr>
+		<% end %>
+	</table>
+	<% end %>
+</div>
+<div class="right_box box">
+	<h2>My Games</h2>
+	<% unless resource.games.blank? %>
+	<table>
+		<% for game in resource.games %>
+			<tr>
+				<td><%= game.start_at.strftime("%A, %B %e at %l:%M%p") %></td>
+				<% if game.games_users.where(:user_id => current_user.id).first.attending == nil %>
+				<td><%= button_to "Yes", attending_game_path(game), :class => "button" %></td>
+				<td><%= button_to "No", not_attending_game_path(game), :class => "button" %></td>
+				<% else %>
+				<td colspan="2"><%= game.games_users.where(:user_id => current_user.id).first.attending ? (button_to "Attending", not_attending_game_path(game), :title => "Click to change attendance", :alt => "Click to change attendance", :class => "button") : (button_to "Not Attending", attending_game_path(game), :title => "Click to change attendance", :alt => "Click to change attendance", :class => "button") %></td>
+				<% end %>
+			</tr>
+		<% end %>
+	</table>
+	<% end %>
+</div>

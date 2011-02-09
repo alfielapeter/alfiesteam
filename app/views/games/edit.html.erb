@@ -1,0 +1,15 @@
+<div class="box">	
+<h1>Edit Game</h1>
+
+<%= form_for(@game) do |f| %>
+
+  <div class="field left">
+    <%= f.label :start_at %><br />
+    <%= f.datetime_select :start_at %>
+  </div>
+  <div class="actions right">
+    <%= f.submit :class => "button" %>
+  </div>
+  <div id="cl"></div>
+<% end %>
+</div>

@@ -1,0 +1,28 @@
+<div id="pitch">
+	<h1>Never play short handed again.</h1>
+	<h2>Alert your teammates effortlessly.  Ensure their attendance.</h2>
+</div>
+<div id="team_box" class="box">
+	<div id="team">
+		<% if current_team.blank? %>
+			<%= render :partial => 'teams/new_team' %>
+		<% else %>
+			<%= render :partial => "teams/team_list" %>
+		<% end %>
+	</div>
+		<div id="choose_team"><center>
+	<% if user_signed_in? && current_user.teams.size > 1 %>
+		<%= form_tag("teams/change_team", :id => "change_team") do %>
+			Change Team: <%= select_tag "team", options_from_collection_for_select(current_user.teams, "id", "name") %>
+		  	<%= submit_tag "Go", :class => "button" %>
+		<% end %>
+	<% end %>
+	<% if captain? %>
+	<small><%= link_to "create a new team", new_team_path %></small>
+	<% end %>
+	</center>
+	</div>
+</div>
+<div id="pitch">
+<h1>Have a full squad at your next game!</h1>
+</div>

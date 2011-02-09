@@ -1,0 +1,65 @@
+<div class="box">
+	<center>
+		<h2>My Team: <%= @team.name %></h2>
+		<h3>Playing at <%= @team.location %> in the <%= @team.league %> league.</h3>
+		<% if current_user.teams.count > 1 %>
+			<%= form_tag("change_team.html") do %>
+				Switch Teams: <%= select_tag "team", options_from_collection_for_select(current_user.teams, "id", "name") %>
+			  	<%= submit_tag "Go", :class => "button" %>
+			<% end %>
+		<% end %>
+		<% if captain? %>
+			<small><%= link_to "create a new team", new_team_path %> | <%= link_to "edit #{@team.name}", edit_team_path(@team) %></small>
+		<% end %>
+	</center>
+</div>
+<div class="left_box box">
+	<h3>Schedule<small style="float:right">
+		<% if captain? %>
+			<%= link_to "add games", "#", :id => "add_games" %>
+		<% end %></small></h3>
+	<div id="add_games_form" style="display:none;">
+		<hr />
+		<%= form_for(@game) do |f| %>
+			<div class="field left"><%= f.label :start_at, "Start Date and Time" %><br />
+				<%= f.datetime_select :start_at, :minute_step => 5, :order => [:month, :day, :year, :hour, :minute] -%></div>
+			<div class="actions right">
+				<%= f.submit "Schedule Game", :class => "button" %></div>
+			<div id="cl"></div>
+		<% end %>
+	</div>
+	<div id="current_games">
+		<% if @games.size > 0 %>
+			<%= render :partial => "pages/game_list" %>
+		<% end %>
+	</div>
+</div>
+<div class="right_box box">
+	<h3>Roster<small style="float:right">
+		<% if captain? %>
+			<%= link_to "add players", "#", :id => "add_players" %>
+		<% end %></small></h3>
+	<div id="add_players_form" style="display:none;">
+		<hr />
+		<%= form_for @player, :as => :user, :url => invitation_path(:user) do |f| %>
+		  <div class="field left"><%= f.label :name %><br />
+		  <%= f.text_field :name %></div>
+
+		  <div class="field left"><%= f.label :email %><br />
+		  <%= f.text_field :email %></div>
+
+		  <div class="actions right"><%= f.submit "Send an invitation", :class => "button" %></div>
+		<% end %>
+		<div id="cl"></div>
+	</div>
+	<% if @players.size > 1 %>
+	<hr />
+	<table width="100%">
+		<thead style="text-align:left;">
+			<tr>
+				<th>Name</th>
+				<th>Phone</th>
+				<th>Email</th>
+			</tr>
+			</thead><% for player in current_team.users %><% unless player == current_user %><tbody><tr><td><%= player.name %></td><td><%= player.phone %></td><td><%= player.email %></td></tr></tbody><% end %><% end %></table><% end -%>
+</div>

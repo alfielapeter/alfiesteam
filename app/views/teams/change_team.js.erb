@@ -1,0 +1,5 @@
+$('#team').html('<%= escape_javascript(render :partial => "team_list") %>');
+$('#game_form').fadeIn(2500);
+$('#player_form').fadeIn(3000);
+$('#current_players').html('<%= render :partial => "users/registrations/players_list" %>');
+$('#current_games').html('<%= render :partial => "pages/game_list" %>');
