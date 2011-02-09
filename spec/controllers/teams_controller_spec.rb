@@ -115,4 +115,29 @@ describe TeamsController do
 		end
 	end
 	
+	describe "Remove player" do
+		before do
+			@team = Factory(:team)
+			@user = Factory(:user)
+			@game = Factory(:game)
+			controller.stub!(:current_team).and_return(@team)
+		end
+		
+		it "should remove player from team" do
+			@team.users << @user
+			@team.users.should have(1).users
+			post :remove_player, :id => @user.id
+			@team.users.should have(0).users
+		end
+		
+		it "should remove games from player schedule" do
+			@team.games << @game
+			@ug = Factory(:games_user, :user_id => @user.id, :game_id => @game.id)
+			post :remove_player, :id => @user.id
+			@ug.should be_nil
+		end
+			
+	end
+	
+	
 end

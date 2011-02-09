@@ -9,9 +9,14 @@ Alfiesteam::Application.routes.draw do
 		collection do
 			post 'change_team'
     end
+		member do
+			post 'remove_player'
+		end
 	end
   devise_for :users, :controllers => { :sessions => "users/sessions", :invitations => "users/invitations" }
 
+	match ':id' => 'games#show'
+	
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

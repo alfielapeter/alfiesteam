@@ -10,8 +10,8 @@ h2{font-size:24px;line-height:30px;}
 h3{font-size:16px;line-height:23px;}
 hr{border:1px solid #ddd;}
 #cl{clear:both;}
-#content{background:none repeat scroll 0 0 #F0F4F8;-moz-border-radius:15px;-moz-box-shadow:0 3px 5px rgba(0,0,0,0.25);-webkit-border-radius:15px;-webkit-box-shadow:0 3px 5px rgba(0,0,0,0.25);max-width:960px;margin:15px auto 0;padding:10px 10px 25px 10px;}
-#top{max-width:960px;margin:15px auto 0;padding:0 10px;}
+#content{background:none repeat scroll 0 0 #F0F4F8;-moz-border-radius:15px;-moz-box-shadow:0 3px 5px rgba(0,0,0,0.25);-webkit-border-radius:15px;-webkit-box-shadow:0 3px 5px rgba(0,0,0,0.25);width:960px;margin:15px auto 0;padding:10px 10px 25px 10px;}
+#top{width:960px;margin:15px auto 0;padding:0 10px;}
 #logo{font-family:'Gruppo',serif;float:left;line-height:36px;font-size:36px;}
 #logo a,#logo a:visited,#logo a:hover{text-decoration:none;color:#000;background-color:transparent;}
 #intro{font-size:18px;padding:15px 15px 0 15px;}
@@ -39,3 +39,4 @@ input[type="radio"]{height:auto;width:auto;}
 .field{margin:2px;padding:2px;}
 .right{float:right;}
 .left{float:left;}
+.remove{text-decoration:none;color:#fff;background-color:#000;border:2px solid #000;font-weight:bold;padding:0 2px 0 3px;font-size:10px;-moz-border-radius:9px;border-radius:9px;width:21px;}

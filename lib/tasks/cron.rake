@@ -11,7 +11,7 @@ task :cron => :environment do
 	end
 	
 	#check for games in the next 4 hours and send a reminder text message
-	@games_today = Game.where(:start_at => 3.hours.from_now..4.hours.from_now)
+	@games_today = Game.where(:start_at => 4.hours.from_now..5.hours.from_now)
 	@games_today.each do |g|
 		g.users.each do |u|
 			u.send_reminder_text(g)

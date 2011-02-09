@@ -65,4 +65,14 @@ class TeamsController < ApplicationController
 			format.html { redirect_to(team_path(@team))}
     end
 	end
+	
+	def remove_player
+		@player = User.find(params[:id])
+		current_team.users.delete(@player)
+		current_team.games.each do |g| 
+			ug = GamesUser.where(:game_id => g.id, :user_id => @player.id)
+			ug.each {|x| x.destroy}
+		end
+		redirect_to(team_path(current_team), :notice => 'Player was successfully removed from this team')
+	end
 end
