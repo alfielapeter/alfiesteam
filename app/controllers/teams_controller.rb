@@ -5,7 +5,7 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
 		@players = @team.users
 		@games = @team.games
-		@game = Game.new()
+		@game = Game.new
 		
     respond_to do |format|
       format.html # show.html.erb
@@ -14,7 +14,7 @@ class TeamsController < ApplicationController
   end
 
 	def new
-		@team = Team.new()
+		@team = Team.new
 	end
 
   def edit
@@ -23,7 +23,7 @@ class TeamsController < ApplicationController
 
   def create
     @team = Team.new(params[:team])
-		@game = Game.new()
+		@game = Game.new
     respond_to do |format|
       if @team.save
 				current_user.teams << @team

@@ -10,9 +10,7 @@ Alfiesteam::Application.routes.draw do
 			post 'change_team'
     end
 	end
-  devise_for :users, :controllers => { :sessions => "users/sessions", :invitations => "users/invitations" } do
-	  post "/invite_player" => "users/registrations#invite_player"
-	end
+  devise_for :users, :controllers => { :sessions => "users/sessions", :invitations => "users/invitations" }
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

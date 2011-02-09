@@ -10,19 +10,20 @@
 			<%= render :partial => "teams/team_list" %>
 		<% end %>
 	</div>
-		<div id="choose_team"><center>
-	<% if user_signed_in? && current_user.teams.size > 1 %>
-		<%= form_tag("teams/change_team", :id => "change_team") do %>
-			Change Team: <%= select_tag "team", options_from_collection_for_select(current_user.teams, "id", "name") %>
-		  	<%= submit_tag "Go", :class => "button" %>
-		<% end %>
-	<% end %>
-	<% if captain? %>
-	<small><%= link_to "create a new team", new_team_path %></small>
-	<% end %>
-	</center>
+	<div id="choose_team">
+		<center>
+			<% if user_signed_in? && current_user.teams.size > 1 %>
+				<%= form_tag("teams/change_team", :id => "change_team") do %>
+					Change Team: <%= select_tag "team", options_from_collection_for_select(current_user.teams, "id", "name") %>
+				  	<%= submit_tag "Go", :class => "button" %>
+				<% end %>
+			<% end %>
+			<% if captain? %>
+				<small><%= link_to "create a new team", new_team_path %></small>
+			<% end %>
+		</center>
 	</div>
 </div>
 <div id="pitch">
-<h1>Have a full squad at your next game!</h1>
+	<h1>Have a full squad at your next game!</h1>
 </div>

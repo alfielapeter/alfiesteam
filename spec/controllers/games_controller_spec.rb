@@ -14,26 +14,10 @@ describe GamesController do
     @mock_game ||= mock_model(Game, stubs).as_null_object
   end
 
-  describe "GET index" do
-    it "assigns all games as @games" do
-      Game.stub(:all) { [mock_game] }
-      get :index
-      assigns(:games).should eq([mock_game])
-    end
-  end
-
   describe "GET show" do
     it "assigns the requested game as @game" do
       Game.stub(:find).with("37") { mock_game }
       get :show, :id => "37"
-      assigns(:game).should be(mock_game)
-    end
-  end
-
-  describe "GET new" do
-    it "assigns a new game as @game" do
-      Game.stub(:new) { mock_game }
-      get :new
       assigns(:game).should be(mock_game)
     end
   end

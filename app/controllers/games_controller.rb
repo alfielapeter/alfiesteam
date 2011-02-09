@@ -1,15 +1,6 @@
 class GamesController < ApplicationController
   before_filter :authenticate_user!
 
-  def index
-    @games = Game.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @games }
-    end
-  end
-
   def show
     @game = Game.find(params[:id])
 		@team = @game.team
@@ -17,15 +8,6 @@ class GamesController < ApplicationController
 		
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @game }
-    end
-  end
-
-  def new
-    @game = Game.new
-
-    respond_to do |format|
-      format.html # new.html.erb
       format.xml  { render :xml => @game }
     end
   end
@@ -88,7 +70,6 @@ class GamesController < ApplicationController
 		@game = Game.find(params[:id])
 		@ug = @game.games_users.where(:user_id => current_user.id).first
 		@ug.update_attribute(:attending, false)
-
 		
 		respond_to do |format|
 			format.html { redirect_to(team_path(current_team), :notice => "You have been marked as NOT ATTENDING this game.")}
