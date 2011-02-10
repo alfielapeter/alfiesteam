@@ -21,6 +21,7 @@ hr{border:1px solid #ddd;}
 #alert{color:red;border-color:red;border-style:solid;padding:5px;text-align:center;}
 #pitch{width:800px;margin:15px auto 0;padding:5px 10px;text-align:center;}
 #choose_team{margin:0 0 15px 15px;}
+#pending{color:#4DBD33;font-size:10px;}
 .actions{margin-top:26px;}
 .box{width:800px;background:none repeat scroll 0 0 #FFFFFF;-moz-border-radius:15px;-moz-box-shadow:0 3px 5px rgba(0,0,0,0.25);-webkit-border-radius:15px;-webkit-box-shadow:0 3px 5px rgba(0,0,0,0.25);margin:15px auto 0;padding:5px 10px;}
 .box a:hover{color:#000;}
