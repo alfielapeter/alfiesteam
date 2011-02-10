@@ -11,17 +11,24 @@
 <center>
 	<div id="mobile_logo"><b><%= link_to "alfieste.am", "/" %></b></div>
 	<div class="mobile_box">
+		<% if notice %><div id="notice"><%= notice %></div><% end %>
+    	<% if alert %><div id="alert"><%= alert %></div><% end %>
 		<h2><%= @team.name %> has a game on <%= @game.start_at.strftime("%A, %B %e at %l:%M%p") %>.</h2>
 		<h2>Will you make it?</h2>
-			<table>
-				<tr>
+			<table style="text-align:center;">
 				<% if @game.games_users.where(:user_id => current_user.id).first.attending == nil %>
-					<td><%= button_to "Yes", attending_game_path(@game), :class => "button" %></td>
-					<td><%= button_to "No", not_attending_game_path(@game), :class => "button" %></td>
+					<tr>
+						<td><%= button_to "Yes", attending_game_path(@game), :class => "button" %></td>
+						<td><%= button_to "No", not_attending_game_path(@game), :class => "button" %></td>
+					</tr>
 				<% else %>
-					<td colspan="2"><%= @game.games_users.where(:user_id => current_user.id).first.attending ? (button_to "Attending", not_attending_game_path(@game), :title => "Click to change attendance", :alt => "Click to change attendance", :class => "button") : (button_to "Not Attending", attending_game_path(@game), :title => "Click to change attendance", :alt => "Click to change attendance", :class => "button") %></td>
+					<tr>
+						<td><%= @game.games_users.where(:user_id => current_user.id).first.attending ? (button_to "Attending", not_attending_game_path(@game), :title => "Click to change attendance", :alt => "Click to change attendance", :class => "button") : (button_to "Not Attending", attending_game_path(@game), :title => "Click to change attendance", :alt => "Click to change attendance", :class => "button") %></td>
+					</tr>
+					<tr>
+						<td style="font-size:10px;">Press again to change attendance</td>
+					</tr>	
 				<% end %>
-			</tr>
 			</table>
 			<hr />
 			<h3>Players Attending: <%= @game.games_users.where(:attending => true).count %></h3>

@@ -11,6 +11,8 @@
 	<center>
 		<div id="mobile_logo"><b><%= link_to "alfieste.am", "/" %></b></div>
 		<div class="mobile_box">
+			<% if notice %><div id="notice"><%= notice %></div><% end %>
+	    	<% if alert %><div id="alert"><%= alert %></div><% end %>
 			<h2>Sign in</h2>
 
 			<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
