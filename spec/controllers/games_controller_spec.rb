@@ -113,13 +113,13 @@ describe GamesController do
 		it "is true when attending" do
 			post :attending, :id => @game.id
 			assigns(:ug).attending.should == true
-			response.should redirect_to(team_path(@team))
+			response.should redirect_to(game_path(@game))
 		end
 		
 		it "is false when not attending" do
 			post :not_attending, :id => @game.id
 			assigns(:ug).attending.should == false
-			response.should redirect_to(team_path(@team))
+			response.should redirect_to(game_path(@game))
 		end
 	end
 

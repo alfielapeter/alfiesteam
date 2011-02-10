@@ -40,3 +40,6 @@ input[type="radio"]{height:auto;width:auto;}
 .right{float:right;}
 .left{float:left;}
 .remove{text-decoration:none;color:#fff;background-color:#000;border:2px solid #000;font-weight:bold;padding:0 2px 0 3px;font-size:10px;-moz-border-radius:9px;border-radius:9px;width:21px;}
+#mobile_logo{font-family:'Gruppo',serif;line-height:36px;font-size:36px;}
+#mobile_logo a,#mobile_logo a:visited,#mobile_logo a:hover{text-decoration:none;color:#000;background-color:transparent;}
+.mobile_box{background:none repeat scroll 0 0 #FFFFFF;-webkit-border-radius:15px;-webkit-box-shadow:0 3px 5px rgba(0,0,0,0.25);margin:15px auto 0;padding:5px 10px;}

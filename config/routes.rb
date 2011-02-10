@@ -5,6 +5,7 @@ Alfiesteam::Application.routes.draw do
 			post 'not_attending'
   	end
   end
+
   resources :teams do
 		collection do
 			post 'change_team'
@@ -13,6 +14,7 @@ Alfiesteam::Application.routes.draw do
 			post 'remove_player'
 		end
 	end
+	
   devise_for :users, :controllers => { :sessions => "users/sessions", :invitations => "users/invitations" }
 
 	match ':id' => 'games#show'

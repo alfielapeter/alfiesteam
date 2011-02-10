@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_filter :authenticate_user!
+	before_filter :adjust_format_for_mobile_device, :only => [:show]
 
   def show
     @game = Game.find(params[:id])
@@ -8,7 +9,7 @@ class GamesController < ApplicationController
 		
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @game }
+			format.mobile 
     end
   end
 
@@ -62,7 +63,7 @@ class GamesController < ApplicationController
 		@ug.update_attribute(:attending, true)
 
 		respond_to do |format|
-			format.html { redirect_to(team_path(current_team), :notice => "You have been marked as ATTENDING this game.")}
+			format.html { redirect_to(game_path(@game), :notice => "You have been marked as ATTENDING this game.")}
 		end
 	end
 	
@@ -72,7 +73,7 @@ class GamesController < ApplicationController
 		@ug.update_attribute(:attending, false)
 		
 		respond_to do |format|
-			format.html { redirect_to(team_path(current_team), :notice => "You have been marked as NOT ATTENDING this game.")}
+			format.html { redirect_to(game_path(@game), :notice => "You have been marked as NOT ATTENDING this game.")}
 		end
 	end
 	
