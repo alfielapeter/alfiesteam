@@ -20,11 +20,11 @@ Rails 3, hosted on Heroku.
 
 == Gems
 
--devise[https://github.com/plataformatec/devise]
--devise_invitable[https://github.com/scambra/devise_invitable]
--moonshado-sms[https://github.com/moonshado/moonshado-sms]
--rspec-rails[https://github.com/rspec/rspec-rails]
--factory_girl_rails[https://github.com/thoughtbot/factory_girl_rails]
+* devise[https://github.com/plataformatec/devise]
+* devise_invitable[https://github.com/scambra/devise_invitable]
+* moonshado-sms[https://github.com/moonshado/moonshado-sms]
+* rspec-rails[https://github.com/rspec/rspec-rails]
+* factory_girl_rails[https://github.com/thoughtbot/factory_girl_rails]
 	
 == Process
 
@@ -32,10 +32,10 @@ Rails 3, hosted on Heroku.
 	
 == TODO
 
--Get domain name setup (.am is taking forever to get registered)
--Finish pending tests
--Finish README
--Make mobile stylesheet and make the rest of the app optimized for mobile devices
--Pretty up error pages
--Spend more that 5 minutes making IE look a little better
--Add timezone settings for users
+* Get domain name setup (.am is taking forever to get registered)
+* Finish pending tests
+* Finish README
+* Make mobile stylesheet and make the rest of the app optimized for mobile devices
+* Pretty up error pages
+* Spend more that 5 minutes making IE look a little better
+* Add timezone settings for users
