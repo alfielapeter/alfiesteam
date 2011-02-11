@@ -4,7 +4,7 @@
 
 This absurdly named application was built for two reasons. First, I play on a number of indoor soccer teams and we always seem to 
 have problems with players remembering to show up for games or at least knowing who is coming and who isn't. Second, I needed a 
-sample of code to place on github to show what I am capable of as I look for full time ruby on rails development work.
+sample of code to place on GitHub to show what I am capable of as I look for full time ruby on rails development work.
 
 == Design
 
@@ -32,8 +32,8 @@ Rails 3, hosted on Heroku.
 	
 == TODO
 
-* Get domain name setup (.am is taking forever to get registered)
-* Finish pending tests
+* Fix pending/non-passing tests
+* Purge past games
 * Finish README
 * Make mobile stylesheet and make the rest of the app optimized for mobile devices
 * Pretty up error pages
