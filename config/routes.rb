@@ -16,6 +16,8 @@ Alfiesteam::Application.routes.draw do
 	end
 	
   devise_for :users, :controllers => { :sessions => "users/sessions", :invitations => "users/invitations" }
+	
+	match '/about' => 'pages#about'
 
 	match ':id' => 'games#show'
 	

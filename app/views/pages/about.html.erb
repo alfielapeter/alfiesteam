@@ -1,0 +1,30 @@
+<div class="box">
+	<h2>What's It All About?</h2>
+	
+	<div id="intro">
+		Born of frustration and necessity, <b>alfiesteam</b> helps adult league team captains remind their players to show up for games. 
+		Meant to be as simple as possible, captains invite players via email, schedule the game starting time and that's it. 
+		Players will receive an email approximately 24 hours before the game and a text message 3-5 hours before game time. In 
+		both cases, players are given a link to respond whether they'll be attending the game or not. No more manually texting or 
+		calling players to make sure you'll have enough come game time.
+	</div>
+	
+	<h3>Help</h3>
+	<div id="intro">
+		If you come across a problem, or simply have a question, use this form. At the moment, this is still a side project, so 
+		don't expect an immediate answer, but I will get back to you.
+		
+		<%= form_for :message do |f| -%>
+		
+		<p><%= f.label :email, "Your Email" %><br />
+		   <%= f.text_field :email %></p>
+		
+		<p><%= f.label :body, "Your Message"%><br />
+		   <%= f.text_area :body %></p>
+		
+		<p><%= f.submit "Submit", :class => 'button' %>
+		
+		<% end -%>
+	</div>
+
+</div>

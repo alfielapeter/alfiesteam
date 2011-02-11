@@ -8,4 +8,11 @@ class UserMailer < ActionMailer::Base
 				 :from => "#{game.team.name}<no-reply@alfieste.am>", 
 				 :subject => "#{game.team.name} Game Reminder"
   end
+
+	def help(message)
+		mail :to => "alfie@alfielapeter.com",
+				 :from => message[:email],
+				 :subject => "alfiesteam help",
+				 :body => message[:body]
+	end
 end
