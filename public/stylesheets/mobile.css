@@ -13,6 +13,7 @@ hr{border:1px solid #ddd;}
 .mobile_box{background:none repeat scroll 0 0 #FFFFFF;-webkit-border-radius:15px;-webkit-box-shadow:0 3px 5px rgba(0,0,0,0.25);margin:15px auto 0;padding:5px 10px;}
 form{margin:5px;padding:5px;}
 input{padding:0.3em;height:2em;width:13em;font-size:16px;border:1px solid #ddd;background:#F0F4F8;font:bold 0.95em arial,sans-serif;-moz-border-radius:0.4em;-webkit-border-radius:0.4em;border-radius:0.4em 0.4em 0.4em 0.4em;}
+input[type="checkbox"]{width:auto;}
 .button{width:auto;font-size:16px;border:1px solid #000;-webkit-box-shadow:0 3px 5px rgba(0,0,0,0.25);-moz-box-shadow:0 3px 5px rgba(0,0,0,0.25);-webkit-text-shadow:2px 2px 2px rgba(0,0,0,0.5);text-shadow:2px 2px 2px rgba(0,0,0,0.5);cursor:pointer;}
 #notice{color:#4DBD33;border-color:#4DBD33;border-style:solid;padding:5px;margin:10px;text-align:center;}
 #alert{color:red;border-color:red;border-style:solid;padding:5px;margin:10px;text-align:center;}

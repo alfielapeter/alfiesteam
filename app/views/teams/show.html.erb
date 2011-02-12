@@ -13,7 +13,7 @@
 		<% end %>
 	</center>
 </div>
-<div class="left_box box">
+<div class="schedule box">
 	<h3>Schedule<small style="float:right">
 		<% if captain? %>
 			<%= link_to "add games", "#", :id => "add_games" %>
@@ -34,7 +34,7 @@
 		<% end %>
 	</div>
 </div>
-<div class="right_box box">
+<div class="roster box">
 	<h3>Roster<small style="float:right">
 		<% if captain? %>
 			<%= link_to "add players", "#", :id => "add_players" %>
@@ -48,7 +48,7 @@
 		  <div class="field left"><%= f.label :email %><br />
 		  <%= f.text_field :email %></div>
 
-		  <div class="actions right"><%= f.submit "Send an invitation", :class => "button" %></div>
+		  <div class="actions right"><%= f.submit "Invite", :class => "button" %></div>
 		<% end %>
 		<div id="cl"></div>
 	</div>
@@ -62,21 +62,25 @@
 				<th>Email</th>
 			</tr>
 		</thead>
-		<% for player in current_team.users %>
-			<% unless player == current_user %>
-			<tbody>
+		<tbody>
+			<% for player in current_team.users %>
+				<% unless player == current_user %>
 				<tr>
 					<td><%= player.name %></td>
 					<td><%= player.phone %></td>
-					<td><%= player.email %> <% if player.invited? %><span id="pending">pending</span><% end %></td>
+					<td><%= player.email %> 
+						<% if player.invited? %>
+							<span id="pending">pending</span>
+						<% end %>
+					</td>
 					<% if current_user.captain? %>
-						<td><%= button_to "X", remove_player_team_path(player), :onclick => "return confirm('Are you sure? This will remove them from this team and take the games off their schedule.');" , :class => "remove", :alt => "Remove player 
-							from team", :title => "Remove player from team" %></td>
+						<td class="zero"><%= button_to "X", remove_player_team_path(player), :onclick => "return confirm('Are you sure? This will remove them from this team and take the games off their schedule.');", 
+						:class => "remove", :alt => "Remove player from team", :title => "Remove player from team" %></td>
 					<% end %>
 				</tr>
-			</tbody>
+				<% end %>
 			<% end %>
-		<% end %>
+		</tbody>
 	</table>
 	<% end -%>
 </div>
