@@ -25,14 +25,14 @@ hr{border:1px solid #ddd;}
 #footer a,#footer a:visited{text-decoration:none;color:#C0C0C0;}
 #footer a:hover{color:#000;}
 #choose_team{margin:0 0 15px 15px;}
-#pending{color:#4DBD33;font-size:10px;}
+#pending a, #pending a:visited{color:#4DBD33;font-size:10px;text-decoration:none;}
 .actions{margin-top:26px;}
 .box{width:800px;background:none repeat scroll 0 0 #FFFFFF;-moz-border-radius:15px;-moz-box-shadow:0 3px 5px rgba(0,0,0,0.25);-webkit-border-radius:15px;-webkit-box-shadow:0 3px 5px rgba(0,0,0,0.25);border-radius:15px 15px 15px 15px;margin:15px auto 0;padding:5px 10px;}
 .box a:hover{color:#000;}
 .left_box{width:430px;margin:15px;float:left;}
 .right_box{width:430px;float:right;margin:15px;}
-.schedule{width:380px;margin:15px 10px 15px 15px;float:left;}
-.roster{width:490px;float:right;margin:15px 15px 15px 10px;}
+.schedule{width:390px;margin:15px 10px 15px 15px;float:left;}
+.roster{width:480px;float:right;margin:15px 15px 15px 10px;}
 form{margin:5px;padding:5px;}
 input,textarea{padding:0.3em;height:2em;width:13em;font-size:16px;border:1px solid #ddd;background:#F0F4F8;font:bold 0.95em arial,sans-serif;-moz-border-radius:0.4em;-webkit-border-radius:0.4em;border-radius:0.4em 0.4em 0.4em 0.4em;}
 textarea{width:40em;height:5em;}

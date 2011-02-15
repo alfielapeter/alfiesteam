@@ -70,13 +70,13 @@
 					<td><%= player.phone %></td>
 					<td><%= player.email %> 
 						<% if player.invited? %>
-							<span id="pending">pending</span>
+							<span id="pending"> <%= link_to "pending", resend_invitation_team_path(player), :alt => "Resend Invitation Email", :title => "Resend Invitation Email" %></span>
+						<% end %>
+						<% if current_user.captain? %>
+							<td class="zero"><%= button_to "X", remove_player_team_path(player), :onclick => "return confirm('Are you sure? This will remove them from this team and take the games off their schedule.');", 
+							:class => "remove", :alt => "Remove player from team", :title => "Remove player from team" %></td>
 						<% end %>
 					</td>
-					<% if current_user.captain? %>
-						<td class="zero"><%= button_to "X", remove_player_team_path(player), :onclick => "return confirm('Are you sure? This will remove them from this team and take the games off their schedule.');", 
-						:class => "remove", :alt => "Remove player from team", :title => "Remove player from team" %></td>
-					<% end %>
 				</tr>
 				<% end %>
 			<% end %>

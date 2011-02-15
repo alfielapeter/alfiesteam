@@ -75,4 +75,9 @@ class TeamsController < ApplicationController
 		end
 		redirect_to(team_path(current_team), :notice => 'Player was successfully removed from this team')
 	end
+	
+	def resend_invitation
+		User.find(params[:id]).invite!
+		redirect_to :back, :notice => "Invitation has been resent to that player."
+	end
 end

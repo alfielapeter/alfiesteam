@@ -11,14 +11,15 @@ Alfiesteam::Application.routes.draw do
 			post 'change_team'
     end
 		member do
-			post 'remove_player'
+			get 'remove_player'
+			get 'resend_invitation'
 		end
 	end
 	
   devise_for :users, :controllers => { :sessions => "users/sessions", :invitations => "users/invitations" }
 	
 	match '/about' => 'pages#about'
-
+	
 	match ':id' => 'games#show'
 	
   # The priority is based upon order of creation:
