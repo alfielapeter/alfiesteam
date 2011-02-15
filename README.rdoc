@@ -35,7 +35,6 @@ Rails 3, hosted on Heroku.
 * Fix pending/non-passing tests
 * Purge past games
 * Finish README
-* Make mobile stylesheet and make the rest of the app optimized for mobile devices
-* Pretty up error pages
+* Make the rest of the app optimized for mobile devices (only login and games#show right now)
 * Spend more that 5 minutes making IE look a little better (this probably won't happen - I hate IE)
 * Add timezone settings for users
