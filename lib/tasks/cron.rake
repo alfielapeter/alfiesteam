@@ -14,8 +14,10 @@ task :cron => :environment do
 	@games_today = Game.where(:start_at => 4.hours.from_now..5.hours.from_now)
 	@games_today.each do |g|
 		g.users.each do |u|
-			u.send_reminder_text(g)
-			puts "text sent to: #{u.phone}"
+			unless u.phone.blank?
+				u.send_reminder_text(g)
+				puts "text sent to: #{u.phone}"
+			end
 		end
 	end
 	
