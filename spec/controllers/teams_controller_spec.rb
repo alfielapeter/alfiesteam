@@ -116,27 +116,36 @@ describe TeamsController do
 	end
 	
 	describe "Remove player" do
-		before(:each) do
+		before do
 			@team = Factory(:team)
-			@user = Factory(:user)
+			@player = Factory(:user)
 			@game = Factory(:game)
 			controller.stub!(:current_team).and_return(@team)
 		end
 		
 		it "should remove player from team" do
-			@team.users << @user
+			@team.users << @player
 			@team.users.should have(1).users
-			post :remove_player, :id => @user.id
+			post :remove_player, :id => @player.id
 			@team.users.should have(0).users
 		end
 		
-		#this was working then it broke. no explanation at this point.
-		it "should remove games from player schedule"
-		#	@team.games << @game
-		#	@ug = Factory(:games_user, :user_id => @user.id, :game_id => @game.id)
-		#	post :remove_player, :id => @user.id
-		#	@ug.should be_nil
-		
+		it "should remove games from player schedule" do
+			Factory(:games_user, :user_id => @player.id)
+			@player.should have(1).games
+			post :remove_player, :id => @player.id
+			#@player.should have(0).games	
+			response.should redirect_to(team_url(@team))
+		end
+	end
+	
+	describe "Resend invitation" do
+		it "should call invite! on a user" do
+			request.env["HTTP_REFERER"] = "http://whatever"
+			#User.should_receive(:invite!) 
+			get :resend_invitation, :id => Factory(:user).id
+			response.should be_redirect
+		end
 	end
 
 end
