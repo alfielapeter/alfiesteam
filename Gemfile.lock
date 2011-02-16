@@ -31,6 +31,8 @@ GEM
     arel (2.0.7)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
+    cgi_multipart_eof_fix (2.5.0)
+    daemons (1.1.0)
     devise (1.1.5)
       bcrypt-ruby (~> 2.1.2)
       warden (~> 1.0.2)
@@ -43,6 +45,8 @@ GEM
     factory_girl_rails (1.0.1)
       factory_girl (~> 1.3)
       railties (>= 3.0.0)
+    fastthread (1.0.7)
+    gem_plugin (0.2.3)
     i18n (0.5.0)
     mail (2.2.14)
       activesupport (>= 2.3.6)
@@ -50,6 +54,11 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    mongrel (1.1.5)
+      cgi_multipart_eof_fix (>= 2.4)
+      daemons (>= 1.0.3)
+      fastthread (>= 1.0.1)
+      gem_plugin (>= 0.2.3)
     moonshado-sms (1.1.0)
       rest-client (= 1.6.0)
       yajl-ruby (= 0.7.7)
@@ -106,6 +115,7 @@ DEPENDENCIES
   devise
   devise_invitable
   factory_girl_rails
+  mongrel
   moonshado-sms
   rails (= 3.0.3)
   rspec-rails (>= 2.4.1)

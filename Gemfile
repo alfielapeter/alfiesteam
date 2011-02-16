@@ -36,4 +36,5 @@ gem 'moonshado-sms'
 group :development, :test do
   gem "rspec-rails", ">= 2.4.1"
   gem 'factory_girl_rails'
+	gem 'mongrel'
 end
