@@ -5,8 +5,10 @@ task :cron => :environment do
 	@games_tomorrow = Game.where(:start_at => 23.hours.from_now..24.hours.from_now)
 	@games_tomorrow.each do |g|
 		g.users.each do |u|
-			u.send_reminder_email(g)
-			puts "email sent to: #{u.email}"
+			unless u.invited?
+				u.send_reminder_email(g)
+				puts "email sent to: #{u.email}"
+			end
 		end
 	end
 	
