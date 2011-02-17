@@ -11,7 +11,7 @@ Alfiesteam::Application.routes.draw do
 			post 'change_team'
     end
 		member do
-			get 'remove_player'
+			post 'remove_player'
 			get 'resend_invitation'
 		end
 	end
