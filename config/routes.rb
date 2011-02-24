@@ -1,4 +1,6 @@
 Alfiesteam::Application.routes.draw do
+  get "sms/index"
+
   resources :games do
   	member do
   		post 'attending'

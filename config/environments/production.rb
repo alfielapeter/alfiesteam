@@ -47,11 +47,15 @@ Alfiesteam::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = { :host => 'alfiesteam.heroku.com' }
+  config.action_mailer.default_url_options = { :host => 'alfieste.am' }
 
 	config.after_initialize do
 	  Moonshado::Sms.configure do |config|
 	    config.api_key = ENV['MOONSHADOSMS_URL']
+			config.keywords = {:game => "http://alfieste.am/sms/index"}
+
+			# This will auto register keywords on application startup
+			config.auto_register_keywords = true
 	  end
 	end
 
