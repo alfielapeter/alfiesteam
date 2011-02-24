@@ -1,5 +1,5 @@
 Alfiesteam::Application.routes.draw do
-  get "sms/index"
+  post "sms/index"
 
   resources :games do
   	member do
