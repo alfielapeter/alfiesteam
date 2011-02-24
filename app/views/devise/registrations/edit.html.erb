@@ -51,7 +51,7 @@
 		<% for game in resource.games.order(:start_at) %>
 			<% unless game.start_at.past? %>
 				<tr>
-					<td><%= game.start_at.strftime("%A, %B %e at %l:%M%p") %></td>
+					<td><%= link_to game.start_at.strftime("%A, %B %e at %l:%M%p"), game %></td>
 					<% if game.games_users.where(:user_id => current_user.id).first.attending == nil %>
 					<td><%= button_to "Yes", attending_game_path(game), :class => "button" %></td>
 					<td><%= button_to "No", not_attending_game_path(game), :class => "button" %></td>
