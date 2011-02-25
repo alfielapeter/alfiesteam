@@ -26,6 +26,17 @@ class Users::InvitationsController < Devise::InvitationsController
 		end
 	end
 	
+	def edit
+    if params[:invitation_token] && self.resource = resource_class.first(:conditions => { :invitation_token => params[:invitation_token] })
+      @team = self.resource.teams.last
+			@game = @team.games.where("start_at > ?", Time.now).order(:start_at).first rescue nil
+			render_with_scope :edit
+    else
+      set_flash_message(:alert, :invitation_token_invalid)
+      redirect_to after_sign_out_path_for(resource_name)
+    end
+  end
+
   def update
     self.resource = resource_class.accept_invitation!(params[resource_name])
 

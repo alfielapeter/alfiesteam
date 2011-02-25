@@ -1,5 +1,5 @@
-<div class="box">
-	<h2>Set your password</h2>
+<div class="box left_box">
+	<h2>Join Your Team</h2>
 	<%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f| %>
 	  <%= devise_error_messages! %>
 	  <%= f.hidden_field :invitation_token %>
@@ -16,6 +16,23 @@
 	  <p>Password Confirmation<br />
 	  <%= f.password_field :password_confirmation %></p>
 
-	  <p><%= f.submit "Set my password", :class => "button" %></p>
+	  <p><%= f.submit "Join", :class => "button" %></p>
+	<% end %>
+</div>
+<div class="box right_box">
+	<h2><%= @team.name %> <span style="font-size:.5em"><%= @team.league %>, <%= @team.location%></span></h2>
+	<h3>Your teammates that have already signed up:</h3>
+	<ul>
+	  <% for player in @team.users %>
+		<% unless player == resource %>
+	    	<li><%= player.name %></li>	
+		<% end %>
+	  <% end %>
+	</ul>
+	<h3>Your next game:</h3>
+	<% if @game %>
+		<ul><li><%= @game.start_at.strftime("%A, %B %e at %l:%M%p") %></li></ul>	
+	<% else %>
+		Your first game has not been scheduled yet. Don't worry, you'll get notified when it is.
 	<% end %>
 </div>
