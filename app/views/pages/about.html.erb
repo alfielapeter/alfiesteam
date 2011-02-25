@@ -12,17 +12,19 @@
 		<br /><br />
 		-Alfie
 		<hr />
-		<h3>Help</h3>
-			<%= form_for :message do |f| -%>
+		<div id="help">
+			<h3>Help</h3>
+				<%= form_for :message do |f| -%>
 		
-			<p><%= f.label :email, "Your Email" %><br />
-			   <%= f.text_field :email %></p>
+				<p><%= f.label :email, "Your Email" %><br />
+				   <%= f.text_field :email %></p>
 		
-			<p><%= f.label :body, "Your Message"%><br />
-			   <%= f.text_area :body %></p>
+				<p><%= f.label :body, "Your Message"%><br />
+				   <%= f.text_area :body %></p>
 		
-			<p><%= f.submit "Submit", :class => 'button' %>
+				<p><%= f.submit "Submit", :class => 'button' %>
 		
-			<% end -%>
+				<% end -%>
+		</div>		
 	</div>
 </div>

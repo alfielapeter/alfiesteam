@@ -17,9 +17,9 @@
 					Change Team: <%= select_tag "team", options_from_collection_for_select(current_user.teams, "id", "name") %>
 				  	<%= submit_tag "Go", :class => "button" %>
 				<% end %>
-			<% end %>
-			<% if captain? %>
-				<small><%= link_to "create a new team", new_team_path %></small>
+				<% if captain? %>
+					<small><%= link_to "create a new team", new_team_path %></small>
+				<% end %>
 			<% end %>
 		</center>
 	</div>
