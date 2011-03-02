@@ -7,10 +7,10 @@ class User < ActiveRecord::Base
 				 :rememberable, :trackable, :validatable, :invitable
 
 	validates_presence_of :name, :message => "can't be blank."
-	validates_presence_of :phone, :message => "can't be blank.", :if => :invited_or_captain
-	validates_length_of 	:phone, :is => 10, :message => "must be 10 digits.", :if => :invited_or_captain
-	validates_format_of 	:phone, :with => /^[\d]+$/, :message => "is invalid. Just enter digits, no spaces or dashes", :if => :invited_or_captain
-
+	validates_presence_of :phone, :message => "number can't be blank.", :if => :invited_or_captain
+	validates_length_of 	:phone, :is => 10, :message => "number must be 10 digits.", :if => :invited_or_captain
+	validates_format_of 	:phone, :with => /^[\d]+$/, :message => "number is invalid. Just enter digits, no spaces or dashes", :if => :invited_or_captain
+	validates_uniqueness_of :phone, :message => "number is already taken. Have you already signed up? If so, try logging in or contacting support if you are having trouble."
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :phone, :captain
 
 	# Don't want to validate phone number on the captain's invitation 
