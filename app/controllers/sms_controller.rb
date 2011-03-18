@@ -13,9 +13,6 @@ class SmsController < ApplicationController
 		elsif @msg.at(-1).downcase == "n"
 			@ug.update_attribute(:attending, false)
 		end
-		puts "game = #{@game.id}"
-		puts "user = #{@user.name}"
-		puts "attending? #{@ug.attending}"
 		
 		render :nothing => true  
 	end

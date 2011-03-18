@@ -1,7 +1,7 @@
 Factory.define :user do |f|
   f.sequence(:email) {|n| "person#{n}@example.com" }
 	f.name "User"
-	f.phone "208-867-5309"
+	f.sequence(:phone) {|p| "208867530#{p}"}
 	f.password "secret"
 	f.password_confirmation {|u| u.password}
 	f.reset_password_token nil
