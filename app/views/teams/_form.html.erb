@@ -1,21 +1,18 @@
-<div class="box">
-	<h2>Create a team...</h2>
-		<%= form_for(@team) do |f| %>
-		  <div class="field left">
-		    <%= f.label :name %><br />
-		    <%= f.text_field :name %>
-		  </div>
-		  <div class="field left">
-		    <%= f.label :location %><br />
-		    <%= f.text_field :location %>
-		  </div>
-		  <div class="field left">
-		    <%= f.label :league %><br />
-		    <%= f.text_field :league %>
-		  </div>
-		  <div class="actions right">
-		    <%= f.submit "Create Team", :class => "button" %>
-		  </div>
-		  <div id="cl"></div>
-		<% end %>
-</div>
+<%= form_for(@team) do |f| %>
+  <div class="field left">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field left">
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </div>
+  <div class="field left">
+    <%= f.label :league %><br />
+    <%= f.text_field :league %>
+  </div>
+  <div class="actions right">
+    <%= f.submit @team.new_record? ? "Create Team" : "Update Team", :class => "button" %>
+  </div>
+  <div id="cl"></div>
+<% end %>

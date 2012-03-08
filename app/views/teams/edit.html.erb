@@ -1,1 +1,5 @@
-<%= render :partial => "form" %>
+<div class="box">
+  <h2>Update <%= @team.name %>...</h2>
+  <%= render "form" %>
+  <center><small><%= link_to "delete team", team_path(@team), :method => :delete, :confirm => "Are you sure? This cannot be undone." %></small></center>
+</div>

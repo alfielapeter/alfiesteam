@@ -2,9 +2,7 @@
   <center>
     <h2>My Team: <%= @team.name %></h2>
     <h3>Playing at <%= @team.location %> in the <%= @team.league %> league.</h3>
-    <% if current_user.teams.count > 1 %>
-      <%= render 'pages/team_selector' %>
-    <% end %>
+    <%= render 'pages/team_selector' %>
     <% if captain? %>
       <small><%= link_to "create a new team", new_team_path %> | <%= link_to "edit #{@team.name}", edit_team_path(@team) %></small>
     <% end %>

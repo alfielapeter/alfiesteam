@@ -10,7 +10,11 @@ class ApplicationController < ActionController::Base
   helper_method :current_team, :captain?, :mobile_device?
 
   def current_team
-    Team.find(session[:team_id]) if session[:team_id]
+    if session[:team_id]
+      Team.find(session[:team_id])
+    elsif current_user.present?
+      current_user.teams.last
+    end
   end
 
   def captain?

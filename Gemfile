@@ -9,6 +9,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'devise'
 gem 'devise_invitable'
 gem 'moonshado-sms'
+gem 'jquery-rails'
 
 # Use unicorn as the web server
 # gem 'unicorn'

@@ -4,34 +4,34 @@
   <title>alfiesteam</title>
   <link  href="//fonts.googleapis.com/css?family=Gruppo:regular" rel="stylesheet" type="text/css" >
   <%= stylesheet_link_tag "style" %>
-  <%= javascript_include_tag "jquery", "application" %>
+  <%= javascript_include_tag 'jquery.min', 'jquery_ujs', 'application' %>
   <%= csrf_meta_tag %>
 </head>
 <body>
-	<div id="top">
-		<div id="logo"><b><%= link_to "alfieste.am", "/" %></b></div>
-		<div id="user">
-		<% if user_signed_in? %>
-			Signed in as <%= link_to current_user.name, edit_user_registration_path(current_user) %> | <%= link_to current_team.name, current_team if current_team %> | <%= link_to "Sign Out", destroy_user_session_path %>
-		<% else %>
-			<%= link_to "Sign Up", new_user_registration_path %> | <%= link_to "Sign In", new_user_session_path %>
-		<% end %>
-		</div>
-	</div>
-	<div id="cl"></div>
-	<div id="content">
-    	<% if notice %><div id="notice"><%= notice %></div><% end %>
-    	<% if alert %><div id="alert"><%= alert %></div><% end %>
-		<%= yield %>
-		<div id="cl"></div>
-	</div>
-	<div id="footer">
-		<div class="right">
-			<%= link_to "built by alfie la peter", "http://alfielapeter.com"%>
-		</div>
-		<div class="left">
-			<%= link_to "about", "/about" %>&nbsp;&nbsp;<%= link_to "contact", "/about#help" %>&nbsp;&nbsp;<%= link_to "help", "/about#help" %>
-		</div>
-	</div>
+  <div id="top">
+    <div id="logo"><b><%= link_to "alfieste.am", "/" %></b></div>
+    <div id="user">
+    <% if user_signed_in? %>
+      Signed in as <%= link_to current_user.name, edit_user_registration_path(current_user) %> | <%= link_to current_team.name, current_team if current_team %> | <%= link_to "Sign Out", destroy_user_session_path %>
+    <% else %>
+      <%= link_to "Sign Up", new_user_registration_path %> | <%= link_to "Sign In", new_user_session_path %>
+    <% end %>
+    </div>
+  </div>
+  <div id="cl"></div>
+  <div id="content">
+      <% if notice %><div id="notice"><%= notice %></div><% end %>
+      <% if alert %><div id="alert"><%= alert %></div><% end %>
+    <%= yield %>
+    <div id="cl"></div>
+  </div>
+  <div id="footer">
+    <div class="right">
+      <%= link_to "built by alfie la peter", "http://alfielapeter.com"%>
+    </div>
+    <div class="left">
+      <%= link_to "about", "/about" %>&nbsp;&nbsp;<%= link_to "contact", "/about#help" %>&nbsp;&nbsp;<%= link_to "help", "/about#help" %>&nbsp;&nbsp;<%= link_to "faq", "/faq" %>
+    </div>
+  </div>
 </body>
 </html>
