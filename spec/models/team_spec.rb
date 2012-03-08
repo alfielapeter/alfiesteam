@@ -16,3 +16,15 @@ describe Team do
 		team.should have(2).games
 	end
 end
+# == Schema Information
+#
+# Table name: teams
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)
+#  league     :string(255)
+#  location   :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+

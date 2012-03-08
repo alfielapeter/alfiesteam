@@ -34,7 +34,6 @@ Rails 3, hosted on Heroku.
 	
 == TODO
 
-* Figure out why .am domain is so fidgety
 * Fix pending/non-passing tests
 * Add FAQs
 * Purge past games

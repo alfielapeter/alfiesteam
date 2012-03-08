@@ -17,3 +17,15 @@ describe Game do
 	end
 	
 end
+
+# == Schema Information
+#
+# Table name: games
+#
+#  id         :integer         not null, primary key
+#  start_at   :datetime
+#  team_id    :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+

@@ -48,3 +48,5 @@ input[type="radio"]{height:auto;width:auto;}
 .right{float:right;}
 .left{float:left;}
 .remove{text-decoration:none;color:#fff;background-color:#000;border:2px solid #000;font-weight:bold;padding:0 2px 0 3px;font-size:10px;-moz-border-radius:9px;-webkit-border-radius:9px;border-radius:9px 9px 9px 9px;width:21px;}
+.question{font-size:1.2em;cursor:pointer;}
+.answer{font-size:14px;color:gray;}
