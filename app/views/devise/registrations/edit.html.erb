@@ -22,6 +22,10 @@
     <p><%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %></p>
 
+    <p>Are you the team captain?<br />
+    Yes&nbsp;<%= f.radio_button :captain, true %><br />
+    No&nbsp;&nbsp;<%= f.radio_button :captain, false %></p>
+
     <p><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password %></p>
 
