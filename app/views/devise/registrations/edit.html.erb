@@ -32,15 +32,12 @@
 <div class="right_box box">
   <h2>My Teams</h2>
   <% unless resource.teams.blank? %>
-  <ul>
-    <% for team in resource.teams %>
-      <li><h3><%= team.name %>: <span style="font-size:.75em"> <%= team.location %>, <%= team.league %></span> </h3></li>
-    <% end %>
-  </ul>
-  <%= form_tag("/teams/change_team.html") do %>
-    Switch Teams: <%= select_tag "team", options_from_collection_for_select(current_user.teams, "id", "name") %>
-      <%= submit_tag "Go", :class => "button" %>
-  <% end %>
+    <ul>
+      <% for team in resource.teams %>
+        <li><h3><%= team.name %>: <span style="font-size:.75em"> <%= team.location %>, <%= team.league %></span> </h3></li>
+      <% end %>
+    </ul>
+    <%= render 'pages/team_selector' %>
   <% end %>
 </div>
 <div class="right_box box">

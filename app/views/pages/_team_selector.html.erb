@@ -1,0 +1,4 @@
+<%= form_tag("/teams/change_team", :id => "change_team") do %>
+  Change Team: <%= select_tag "team", options_from_collection_for_select(current_user.teams, "id", "name", current_team.id) %>
+    <%= submit_tag "Go", :class => "button" %>
+<% end %>
