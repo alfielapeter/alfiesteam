@@ -2,8 +2,13 @@ require 'spec_helper'
 
 describe TeamsController do
 
+  let(:team) { Factory(:team) }
+  let(:player) { Factory(:user) }
+  let(:game) { Factory(:game) }
+
   before do
-    sign_in Factory.create(:user)
+    sign_in Factory(:user)
+    controller.stub!(:current_team).and_return(team)
   end
 
   def mock_team(stubs={})
@@ -14,9 +19,9 @@ describe TeamsController do
     it "assigns the requested team as @team" do
       Team.stub(:find).with("37") { mock_team }
       get :show, :id => "37"
-			assigns(:players).should_not be_nil
-			assigns(:game).should_not be_nil
-			assigns(:games).should_not be_nil
+      assigns(:players).should_not be_nil
+      assigns(:game).should_not be_nil
+      assigns(:games).should_not be_nil
       assigns(:team).should be(mock_team)
     end
   end
@@ -40,16 +45,16 @@ describe TeamsController do
   describe "POST create" do
     describe "with valid params" do
       it "assigns a newly created team as @team" do
-				controller.stub!(:current_user).and_return(Factory(:user))
+        controller.stub!(:current_user).and_return(Factory(:user))
         post :create, :team => Factory.attributes_for(:team)
-				assigns(:game).should_not be_nil
-				response.should be_redirect
+        assigns(:game).should_not be_nil
+        response.should be_redirect
       end
-		end
-		
+    end
+
     describe "with invalid params" do
       it "redirects back" do
-				request.env["HTTP_REFERER"] = "http://whatever"
+        request.env["HTTP_REFERER"] = "http://whatever"
         post :create, :team => {}
         response.should be_redirect
       end
@@ -102,50 +107,42 @@ describe TeamsController do
     it "redirects to the teams list" do
       Team.stub(:find) { mock_team }
       delete :destroy, :id => "1"
-      response.should redirect_to(teams_url)
+      response.should redirect_to(edit_user_registration_path(1))
     end
   end
 
-	describe "Change team" do
-		it "should change the session team_id variable" do
-			@team = Factory(:team)
-			post :change_team, :team => @team.id
-			session[:team_id].should == @team.id
-			response.should redirect_to(team_url(@team))
-		end
-	end
-	
-	describe "Remove player" do
-		before do
-			@team = Factory(:team)
-			@player = Factory(:user)
-			@game = Factory(:game)
-			controller.stub!(:current_team).and_return(@team)
-		end
-		
-		it "should remove player from team" do
-			@team.users << @player
-			@team.users.should have(1).users
-			post :remove_player, :id => @player.id
-			@team.users.should have(0).users
-		end
-		
-		it "should remove games from player schedule" do
-			Factory(:games_user, :user_id => @player.id)
-			@player.should have(1).games
-			post :remove_player, :id => @player.id
-			#@player.should have(0).games	
-			response.should redirect_to(team_url(@team))
-		end
-	end
-	
-	describe "Resend invitation" do
-		it "should call invite! on a user" do
-			request.env["HTTP_REFERER"] = "http://whatever"
-			#User.should_receive(:invite!) 
-			get :resend_invitation, :id => Factory(:user).id
-			response.should be_redirect
-		end
-	end
+  describe "Change team" do
+    it "should change the session team_id variable" do
+      post :change_team, :team => team.id
+      session[:team_id].should == team.id
+      response.should redirect_to(team_url(team))
+    end
+  end
+
+  describe "Remove player" do
+    it "should remove player from team" do
+      team.users << player
+      team.users.should have(1).users
+      post :remove_player, :id => player.id
+      team.users.should have(0).users
+    end
+
+    it "should remove games from player schedule" do
+      Factory(:games_user, :user_id => player.id)
+      player.should have(1).games
+      post :remove_player, :id => player.id
+      # @player.should have(0).games
+      response.should redirect_to(team_url(team))
+    end
+  end
+
+  describe "Resend invitation" do
+    it "should call invite! on a user" do
+      request.env["HTTP_REFERER"] = "http://whatever"
+      get :resend_invitation, :id => player.id
+      # player.should_receive(:invite!)
+      response.should be_redirect
+    end
+  end
 
 end

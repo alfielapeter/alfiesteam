@@ -14,9 +14,6 @@
     <center>
       <% if user_signed_in? %>
         <%= render 'team_selector' %>
-        <% if captain? %>
-          <small><%= link_to "create a new team", new_team_path %></small>
-        <% end %>
       <% end %>
     </center>
   </div>

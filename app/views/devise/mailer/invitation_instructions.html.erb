@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <style type="text/css" media="screen">
+    body,p{font-family:arial,verdana,helvetica,sans-serif;font-size:14px;line-height:20px;}
+  </style>
+</head>
+<body>
+  <p>Hello <%= @resource.name || @resource.email %>!</p>
+
+  <p>Your team captain has invited you to use <%= link_to "AlfiesTeam", root_url %>, a reminder program for adult sports leagues. You can accept it through the link below.</p>
+
+  <p><%= link_to 'Accept Invitation', accept_invitation_url(@resource, :invitation_token => @resource.invitation_token) %></p>
+
+  <p>AlfiesTeam allows your team captain to set up email and text reminders of upcoming game times. You'll receive an email the day before and a text message a few hours before your games. From either the email or the text you can easily RSVP so your captain will know whether you'll be at the game or not.</p>
+
+  <p>If you don't want to accept the invitation, please ignore this email.<br />
+  Your account won't be created until you access the link above and set your password.</p>
+</body>
+</html>

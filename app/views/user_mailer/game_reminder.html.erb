@@ -1,5 +1,16 @@
-<p><%= @player.name %>,</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <style type="text/css" media="screen">
+    body,p{font-family:arial,verdana,helvetica,sans-serif;font-size:14px;line-height:20px;}
+  </style>
+</head>
+<body>
+  <p><%= @player.name %>,</p>
 
-<p>This is a reminder that <%= @game.team.name %> has a game on <%= @game.start_at.strftime("%A, %B %e at %l:%M%p") %>.</p>
+  <p>This is a reminder that <%= @game.team.name %> has a game on <%= @game.start_at.strftime("%A, %B %e at %l:%M%p") %>.</p>
 
-<p>Will you be coming to that game? Please <%= link_to "click here", game_url(@game) %> to answer.</p>
+  <p>Will you be coming to that game? Please <%= link_to "click here", game_url(@game) %> to answer.</p>
+</body>
+</html>
