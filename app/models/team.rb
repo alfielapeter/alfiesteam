@@ -7,6 +7,18 @@ class Team < ActiveRecord::Base
   validates_presence_of :location, :on => :create, :message => "can't be blank"
   validates_presence_of :league, :on => :create, :message => "can't be blank"
 
+  def to_ics
+    RiCal.Calendar do |cal|
+      self.games.future.each do |game|
+        cal.event do |event|
+          event.summary = "#{self.name} Game"
+          event.dtstart = game.start_at
+          event.dtend = game.start_at + 1.hour
+          event.location = self.location
+        end
+      end
+    end
+  end
 end
 # == Schema Information
 #

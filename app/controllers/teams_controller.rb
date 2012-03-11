@@ -10,6 +10,7 @@ class TeamsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @team }
+      format.ics  { render :text => @team.to_ics }
     end
   end
 

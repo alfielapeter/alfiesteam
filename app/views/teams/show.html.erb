@@ -9,10 +9,12 @@
   </center>
 </div>
 <div class="schedule box">
-  <h3>Schedule<small style="float:right">
-    <% if captain? %>
-      <%= link_to "add games", "#", :id => "add_games" %>
-    <% end %></small></h3>
+  <h3>Schedule
+    <small><%= link_to " (ical)", team_path(@team, :format => :ics), :title => "Export to iCal", :alt => "Export to iCal" %></small>
+    <small style="float:right">
+      <%= link_to "add games", "#", :id => "add_games" if captain? %>
+    </small>
+  </h3>
   <div id="add_games_form" style="display:none;">
     <hr />
     <%= form_for(@game) do |f| %>

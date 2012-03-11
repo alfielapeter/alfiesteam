@@ -89,6 +89,7 @@ GEM
       json (~> 1.4)
     rest-client (1.6.0)
       mime-types (>= 1.16)
+    ri_cal (0.8.8)
     rspec (2.6.0)
       rspec-core (~> 2.6.0)
       rspec-expectations (~> 2.6.0)
@@ -127,6 +128,7 @@ DEPENDENCIES
   jquery-rails
   moonshado-sms
   rails (= 3.0.12)
+  ri_cal
   rspec-rails
   spork
   sqlite3-ruby

@@ -10,6 +10,7 @@ gem 'devise'
 gem 'devise_invitable'
 gem 'moonshado-sms'
 gem 'jquery-rails'
+gem 'ri_cal'
 
 # Use unicorn as the web server
 # gem 'unicorn'
