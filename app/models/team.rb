@@ -15,6 +15,8 @@ class Team < ActiveRecord::Base
           event.dtstart = game.start_at
           event.dtend = game.start_at + 1.hour
           event.location = self.location
+          event.uid = "#{self.id}_#{game.id}_alfiesteam"
+          event.url = "http://alfieste.am/#{game.id}"
         end
       end
     end
