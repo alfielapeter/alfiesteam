@@ -10,7 +10,7 @@
 </div>
 <div class="schedule box">
   <h3>Schedule
-    <small><%= link_to " (ical)", team_path(@team, :format => :ics), :title => "Export to iCal", :alt => "Export to iCal" %></small>
+    <small><%= link_to " (subscribe)", team_path(@team, :format => :ics, :only_path => false, :protocol => "webcal"), :title => "subscribe via webcal", :alt => "subscribe via webcal" %></small>
     <small style="float:right">
       <%= link_to "add games", "#", :id => "add_games" if captain? %>
     </small>

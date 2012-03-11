@@ -1,5 +1,7 @@
 class TeamsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter do |controller|
+    :authenticate_user! unless controller.request.format.ics?
+  end
 
   def show
     @team = Team.find(params[:id])
