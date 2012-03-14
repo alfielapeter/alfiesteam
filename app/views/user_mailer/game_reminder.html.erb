@@ -9,7 +9,7 @@
 <body>
   <p><%= @player.name %>,</p>
 
-  <p>This is a reminder that <%= @game.team.name %> has a game on <%= @game.start_at.strftime("%A, %B %e at %l:%M%p") %>.</p>
+  <p>This is a reminder that <%= @game.team.name %> has a game on <%= @game.start_at.in_time_zone(@player.time_zone).strftime("%A, %B %e at %l:%M%p") %>.</p>
 
   <p>Will you be coming to that game? Please <%= link_to "click here", game_url(@game) %> to answer.</p>
 </body>

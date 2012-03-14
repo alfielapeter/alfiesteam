@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   def send_reminder_text(game)
     phone = self.phone.gsub(/[\-\.]/, "").insert(0, '1')
     link = "http://alfieste.am/#{game.id}"
-    sms = Moonshado::Sms.new(phone, "#{game.team.name} game at #{game.start_at.strftime('%l:%M%p')}. Reply with 'game #{game.id} (y or n)' or visit: #{link}")
+    sms = Moonshado::Sms.new(phone, "#{game.team.name} game at #{game.start_at.in_time_zone(self.time_zone).strftime('%l:%M%p')}. Reply with 'game #{game.id} (y or n)' or visit: #{link}")
     sms.deliver_sms
   end
 
