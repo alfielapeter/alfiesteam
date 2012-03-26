@@ -1,1 +1,1 @@
-rvm gemset use alfiesteam
+rvm use 1.9.2@alfiesteam
