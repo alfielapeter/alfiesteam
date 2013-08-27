@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :phone, :message => "number is already taken. Have you already signed up? If so, try logging in or contacting support if you are having trouble."
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :phone, :captain, :time_zone
 
+  TWILIO_NUMBER = '+12083506248'
+
   # Don't want to validate phone number on the captain's invitation
   # so only check on new user form (captain) or on invitation response.
   def invited_or_captain
@@ -27,8 +29,9 @@ class User < ActiveRecord::Base
   def send_reminder_text(game)
     phone = self.phone.gsub(/[\-\.]/, "").insert(0, '1')
     link = "http://alfieste.am/#{game.id}"
-    sms = Moonshado::Sms.new(phone, "#{game.team.name} game at #{game.start_at.in_time_zone(self.time_zone).strftime('%l:%M%p')}. Reply with 'game #{game.id} (y or n)' or visit: #{link}")
-    sms.deliver_sms
+    message = "#{game.team.name} game at #{game.start_at.in_time_zone(self.time_zone).strftime('%l:%M%p')}. Reply with '#{game.id} (y or n)' or visit: #{link}"
+    client = Twilio::REST::Client.new ENV['TWILIO_SID'], ENV['TWILIO_TOKEN']
+    client.account.sms.messages.create(from: TWILIO_NUMBER, to: phone, body: message)
   end
 
 end

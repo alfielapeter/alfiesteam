@@ -2,36 +2,35 @@
 
 == Intro
 
-This absurdly named application was built for two reasons. First, I play on a number of indoor soccer teams and we always seem to 
-have problems with players remembering to show up for games or at least knowing who is coming and who isn't. Second, I needed a 
+This absurdly named application was built for two reasons. First, I play on a number of indoor soccer teams and we always seem to
+have problems with players remembering to show up for games or at least knowing who is coming and who isn't. Second, I needed a
 sample of code to place on GitHub to show what I am familiar with as I look for full time ruby on rails development work.
 
 == Process
 
-I originally built this application for the reasons above, but while I was at it I figured I'd learn a few things. I have built a 
-few applications on Rails 2.x and used restful_authentication for all of them. I had also never attempting using TDD methods. So I 
-decided to use Rails 3, Devise for authentication and build the whole thing with RSpec specs first. 
+I originally built this application for the reasons above, but while I was at it I figured I'd learn a few things. I have built a
+few applications on Rails 2.x and used restful_authentication for all of them. I had also never attempting using TDD methods. So I
+decided to use Rails 3, Devise for authentication and build the whole thing with RSpec specs first.
 
 == Design
 
-I'm not a designer. I know enough CSS to work with and around it. I'm fascinated with all the new HTML5 and CSS3 features and I 
-used some with complete disregard to IE (it works, but its ugly). In my previous projects I bought complete design layouts rather 
-than wasting hours on my own design that wouldn't look as good. Besides, those designs cost less than $20. In this application I 
-decided to try a basic layout that I designed and wrote on my own. There are no images (though I'll probably add a favicon) and it 
+I'm not a designer. I know enough CSS to work with and around it. I'm fascinated with all the new HTML5 and CSS3 features and I
+used some with complete disregard to IE (it works, but its ugly). In my previous projects I bought complete design layouts rather
+than wasting hours on my own design that wouldn't look as good. Besides, those designs cost less than $20. In this application I
+decided to try a basic layout that I designed and wrote on my own. There are no images (though I'll probably add a favicon) and it
 leaves much to be desired but that wasn't the point here.
 
 == Structure
 
-Rails 3, hosted on Heroku. 
+Rails 3, hosted on Heroku.
 
 == Gems
 
 * devise[https://github.com/plataformatec/devise]
 * devise_invitable[https://github.com/scambra/devise_invitable]
-* moonshado-sms[https://github.com/moonshado/moonshado-sms]
 * rspec-rails[https://github.com/rspec/rspec-rails]
 * factory_girl_rails[https://github.com/thoughtbot/factory_girl_rails]
-	
+
 == TODO
 
 * Fix pending/non-passing tests

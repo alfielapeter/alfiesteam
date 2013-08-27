@@ -31,11 +31,4 @@ Alfiesteam::Application.configure do
     :port => 1025,
     :domain => "alfieste.am"
    }
-
-  config.after_initialize do
-    Moonshado::Sms.configure do |config|
-      config.production_environment = false
-    end
-  end
-
 end

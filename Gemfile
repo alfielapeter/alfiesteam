@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.19'
+gem 'rails', '3.0.20'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -8,7 +8,7 @@ gem 'rails', '3.0.19'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'devise'
 gem 'devise_invitable'
-gem 'moonshado-sms'
+gem 'twilio-ruby'
 gem 'jquery-rails'
 gem 'ri_cal'
 
